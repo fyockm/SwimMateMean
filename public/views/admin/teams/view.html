@@ -1,0 +1,6 @@
+<section data-ng-controller="TeamsController" data-ng-init="findOne()">
+	<span>{{team.created | date:'medium'}}</span> /
+	<span>{{team.user.name}}</span>
+	<h2>{{team.name}} <a href="/#!/admin/teams/{{team._id}}/edit">edit</a></h2>
+	<div>{{team.mascot}}</div>
+</section>

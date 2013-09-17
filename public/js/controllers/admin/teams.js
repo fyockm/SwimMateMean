@@ -1,17 +1,23 @@
-function TeamsController($scope, $routeParams, $location, Global, Teams) {
+angular.module('mean.admin').controller('TeamsController', ['$scope', '$routeParams', '$location', 'Global', 'Teams',
+    function ($scope, $routeParams, $location, Global, Teams) {
+
     $scope.global = Global;
 
-    $scope.create = function() {
-        var team = new Teams({
-            name: this.name,
-            mascot: this.mascot
-        });
+    $scope.add = function () {
+        if (!$scope.newTeam.name) {
+            return;
+        }
         team.$save(function(response) {
             $location.path("admin/teams/" + response._id);
         });
+        $scope.teams.push($scope.newTeam);
+        $scope.newTeam = {};
+    };
 
-        this.name = "";
-        this.mascot = "";
+    $scope.create = function() {
+        new Teams($scope.newTeam).$save();
+        $scope.teams.push($scope.newTeam);
+        $scope.newTeam = {};
     };
 
     $scope.remove = function(team) {
@@ -49,4 +55,4 @@ function TeamsController($scope, $routeParams, $location, Global, Teams) {
             $scope.team = team;
         });
     };
-}
+}]);

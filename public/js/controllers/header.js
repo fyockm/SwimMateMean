@@ -3,7 +3,7 @@ angular.module('mean.system').controller('HeaderController', ['$scope', 'Global'
 
     $scope.menu = [{
         "title": "Admin",
-        "link": "",
+        "link": "admin",
         "dropdown": true,
         "sub": [{
             "title": "Teams",
@@ -12,8 +12,7 @@ angular.module('mean.system').controller('HeaderController', ['$scope', 'Global'
             "title": "Events",
             "link": "admin/events"
         }, {
-            "title": "",
-            "link": "divider"
+            "title": ""
         }, {
             "title": "Meets",
             "link": "admin/meets"
@@ -21,8 +20,7 @@ angular.module('mean.system').controller('HeaderController', ['$scope', 'Global'
             "title": "Roster",
             "link": "admin/roster"
         }, {
-            "title": "",
-            "link": "divider"
+            "title": ""
         }, {
             "title": "Import",
             "link": "admin/import"
@@ -40,7 +38,7 @@ angular.module('mean.system').controller('HeaderController', ['$scope', 'Global'
         "dropdown": false
     }, {
         "title": "Reports",
-        "link": "",
+        "link": "reports",
         "dropdown": true,
         "sub": [{
             "title": "Cards",
@@ -56,21 +54,4 @@ angular.module('mean.system').controller('HeaderController', ['$scope', 'Global'
             "link": "reports/mostImproved"
         }]
     }];
-
-    $scope.init = function() {
-
-    };
-
-    $scope.itemClass = function(item) {
-        if (item.dropdown) {
-            return "dropdown";
-        }
-        if (item.link == "divider") {
-            return "divider";
-        }
-        if ($location.path() == "/"+item.link) {
-            return "active";
-        }
-        else return "";
-    };
 }]);

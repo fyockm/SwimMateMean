@@ -1,5 +1,5 @@
 //Teams service used for teams REST endpoint
-window.app.factory("Teams", function($resource) {
+angular.module('mean.admin').factory("Teams", ['$resource', function($resource) {
     return $resource('admin/teams/:teamId', {
         teamId: '@_id'
     }, {
@@ -7,4 +7,4 @@ window.app.factory("Teams", function($resource) {
             method: 'PUT'
         }
     });
-});
+}]);

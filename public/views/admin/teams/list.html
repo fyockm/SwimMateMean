@@ -1,4 +1,4 @@
-<section data-ng-controller="TeamsController" data-ng-init="find()">
+<section ng-controller="TeamsController" ng-init="find()">
 	<div class="page-header">
 		<h1>Teams</h1>
 	</div>
@@ -14,7 +14,7 @@
 	    </thead>
 	    <tbody>
 	      <tr ng-repeat="team in teams | orderBy:sort">
-	        <td><a data-ng-href="#!/admin/teams/{{team._id}}">{{team.name}}</a></td>
+	        <td><a ng-href="#!/admin/teams/{{team._id}}">{{team.name}}</a></td>
 	        <td>{{team.mascot}}</td>
 	        <td>{{team.division}}</td>
 	        <td>
@@ -22,8 +22,8 @@
 	        </td>
 	      </tr>
 	      <tr id="new-item">
-	        <td><input  class="input-medium" type="text" ng-model="newTeam.name" ></td>
-	        <td><input  class="input-medium" type="text" ng-model="newTeam.mascot"></td>
+	        <td><input  class="input-medium" type="text" ng-model="newTeam.name" id="team" placeholder="Team"></td>
+	        <td><input class="input-medium" type="text" ng-model="newTeam.mascot" id="mascot" placeholder="Mascot" /></td>
 	        <td>
 	          <select  class="input-small" type="text" ng-model="newTeam.division">
 	            <option>Gold</option>
@@ -37,6 +37,6 @@
 	    </tbody>
 	  </table>
 	</div>
-	<!-- <h1 data-ng-hide="!teams || teams.length">No teams yet. <br> Why don't you </h1>
+	<!-- <h1 ng-hide="!teams || teams.length">No teams yet. <br> Why don't you </h1>
 	<a href="/#!/admin/teams/create">Create new Team</a>? -->
 </section>

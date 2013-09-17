@@ -1,11 +1,11 @@
 <div class="navbar-inner" data-ng-controller="HeaderController" data-ng-init="init()">
 	<ul class="nav">
 		<li><a class="brand" href="/">SwimMate</a></li>
-		<li data-ng-repeat="item in menu" data-ng-show="global.user" data-ng-class="itemClass(item)">
+		<li data-ng-repeat="item in menu" data-ng-show="global.user" ui-route="/{{item.link}}" data-ng-class="{active: $uiRoute, dropdown: item.dropdown, divider: item.title}">
 			<a data-ng-hide="item.dropdown" href="#!/{{item.link}}">{{item.title}}</a>
 			<a data-ng-show="item.dropdown" class="dropdown-toggle" href="#!/">{{item.title}}<b class="caret"></b></a>
 			<ul data-ng-show="item.dropdown" class="dropdown-menu">
-				<li data-ng-repeat="subitem in item.sub" data-ng-class="itemClass(subitem)">
+				<li data-ng-repeat="subitem in item.sub" ui-route="/{{subitem.link}}" data-ng-class="{active: $uiRoute, dropdown: subitem.dropdown, divider: !subitem.title}">
 					<a href="#!/{{subitem.link}}">{{subitem.title}}</a>
 				</li>
 			</ul>

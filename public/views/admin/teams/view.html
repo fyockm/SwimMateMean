@@ -1,6 +1,35 @@
 <section data-ng-controller="TeamsController" data-ng-init="findOne()">
-	<span>{{team.created | date:'medium'}}</span> /
-	<span>{{team.user.name}}</span>
-	<h2>{{team.name}} <a href="/#!/admin/teams/{{team._id}}/edit">edit</a></h2>
-	<div>{{team.mascot}}</div>
+
+  <h2>{{team.name}} {{team.mascot}}</h2>
+
+  <form class="form-horizontal" data-ng-submit="update()">
+    <div class="control-group">
+      <label class="control-label" for="name">Name</label>
+      <div class="controls">
+        <input type="text" data-ng-model="team.name" id="name" placeholder="Name">
+        </input>
+      </div>
+    </div>
+    <div class="control-group">
+      <label class="control-label" for="mascot">Mascot</label>
+      <div class="controls">
+        <input type="text" data-ng-model="team.mascot" id="mascot" placeholder="Mascot">
+        </input>
+      </div>
+    </div>
+    <div class="control-group">
+      <label class="control-label" for="division">Division</label>
+      <div class="controls">
+        <select  class="input-small" type="text" ng-model="team.division" id="division">
+          <option>Gold</option>
+          <option>Silver</option>
+        </select>
+      </div>
+    </div>
+    <div class="control-group">
+      <div class="controls">
+        <input type="submit" class="btn">
+      </div>
+    </div>
+  </form>
 </section>

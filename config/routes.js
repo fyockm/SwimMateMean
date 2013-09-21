@@ -9,7 +9,7 @@ module.exports = function(app, passport, auth) {
 
     //Setting up the users api
     app.post('/users', users.create);
-    
+
     app.post('/users/session', passport.authenticate('local', {
         failureRedirect: '/signin',
         failureFlash: 'Invalid email or password.'
@@ -61,14 +61,6 @@ module.exports = function(app, passport, auth) {
 
     //Finish with setting up the userId param
     app.param('userId', users.user);
-
-    //Article Routes
-    // var articles = require('../app/controllers/articles');
-    // app.get('/articles', articles.all);
-    // app.post('/articles', auth.requiresLogin, articles.create);
-    // app.get('/articles/:articleId', articles.show);
-    // app.put('/articles/:articleId', auth.requiresLogin, auth.article.hasAuthorization, articles.update);
-    // app.del('/articles/:articleId', auth.requiresLogin, auth.article.hasAuthorization, articles.destroy);
 
     //Team Routes
     var teams = require('../app/controllers/admin/teams');

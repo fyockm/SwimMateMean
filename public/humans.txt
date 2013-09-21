@@ -3,13 +3,13 @@
 
 # TEAM
 
-    Steel Bison Dev -- Developer -- @drewfyock
+  Steel Bison Dev -- Developer -- @drewfyock
 
 # THANKS
 
-    Drew Fyock
+  Drew Fyock
 
 # TECHNOLOGY COLOPHON
 
-    HTML5, CSS3
-    jQuery, Modernizr
+  HTML5, CSS3
+  jQuery, Modernizr

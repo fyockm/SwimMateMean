@@ -1,8 +1,8 @@
-angular.module('mean.system').controller('IndexController', ['$scope', 'Global', function ($scope, Global) {
+angular.module('swimmate.system').controller('IndexController', ['$scope', 'Global', function ($scope, Global) {
   $scope.global = Global;
-	$scope.awesomeThings = [
-		'Teams',
-		'Meets',
-		'Rosters'
-	];
+  $scope.awesomeThings = [
+    'Teams',
+    'Meets',
+    'Rosters'
+  ];
 }]);

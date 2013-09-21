@@ -1,42 +1,42 @@
 <section ng-controller="TeamsController" ng-init="find()">
-	<div class="page-header">
-		<h1>Teams</h1>
-	</div>
-	<div id="list">
-		<table class="table table-hover">
-	    <thead>
-		    <tr>
-		      <th><a href="" ng-click="sort='name'">Name</a></th>
-		      <th><a href="" ng-click="sort='mascot'">Mascot</a></th>
-		      <th><a href="" ng-click="sort='division'">Division</a></th>
-		      <th></th>
-		    </tr>
-	    </thead>
-	    <tbody>
-	      <tr ng-repeat="team in teams | orderBy:sort">
-	        <td><a ng-href="#!/admin/teams/{{team._id}}">{{team.name}}</a></td>
-	        <td>{{team.mascot}}</td>
-	        <td>{{team.division}}</td>
-	        <td>
-	          <button class="btn btn-danger" ng-click="remove(team)">X</button>
-	        </td>
-	      </tr>
-	      <tr id="new-item">
-	        <td><input  class="input-medium" type="text" ng-model="newTeam.name" id="team" placeholder="Team"></td>
-	        <td><input class="input-medium" type="text" ng-model="newTeam.mascot" id="mascot" placeholder="Mascot" /></td>
-	        <td>
-	          <select  class="input-small" type="text" ng-model="newTeam.division">
-	            <option>Gold</option>
-	            <option>Silver</option>
-	          </select>
-	        </td>
-	        <td>
-	          <button class="btn btn-primary" ng-click="add()">Add</button>
-	        </td>
-	      </tr>
-	    </tbody>
-	  </table>
-	</div>
-	<!-- <h1 ng-hide="!teams || teams.length">No teams yet. <br> Why don't you </h1>
-	<a href="/#!/admin/teams/create">Create new Team</a>? -->
+  <div class="page-header">
+    <h1>Teams</h1>
+  </div>
+  <div id="list">
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th><a href="" ng-click="sort='name'">Name</a></th>
+          <th><a href="" ng-click="sort='mascot'">Mascot</a></th>
+          <th><a href="" ng-click="sort='division'">Division</a></th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="team in teams | orderBy:sort">
+          <td><a ng-href="#!/admin/teams/{{team._id}}">{{team.name}}</a></td>
+          <td>{{team.mascot}}</td>
+          <td>{{team.division}}</td>
+          <td>
+            <button class="btn btn-danger" ng-click="remove(team)">X</button>
+          </td>
+        </tr>
+        <tr id="new-item">
+          <td><input  class="input-medium" type="text" ng-model="newTeam.name" id="team" placeholder="Team"></td>
+          <td><input class="input-medium" type="text" ng-model="newTeam.mascot" id="mascot" placeholder="Mascot" /></td>
+          <td>
+            <select  class="input-small" type="text" ng-model="newTeam.division">
+              <option>Gold</option>
+              <option>Silver</option>
+            </select>
+          </td>
+          <td>
+            <button class="btn btn-primary" ng-click="add()">Add</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <!-- <h1 ng-hide="!teams || teams.length">No teams yet. <br> Why don't you </h1>
+  <a href="/#!/admin/teams/create">Create new Team</a>? -->
 </section>

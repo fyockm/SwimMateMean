@@ -1,4 +1,4 @@
-window.app = angular.module('mean', ['ngCookies', 'ngResource', 'ui.bootstrap', 'ui.route', 'mean.system', 'mean.admin']);
+window.app = angular.module('swimmate', ['ngCookies', 'ngResource', 'ui.bootstrap', 'ui.route', 'swimmate.system', 'swimmate.admin']);
 
-angular.module('mean.system', []);
-angular.module('mean.admin', []);
+angular.module('swimmate.system', []);
+angular.module('swimmate.admin', []);

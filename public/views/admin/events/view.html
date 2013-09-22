@@ -1,0 +1,66 @@
+<section data-ng-controller="EventsController" data-ng-init="findOne()">
+
+  <h2>{{event.number}} {{event.length}} {{event.stroke}} {{event.type}} {{event.age}}{{event.gender}}</h2>
+
+  <form class="form-horizontal" data-ng-submit="update()">
+    <div class="control-group">
+      <label class="control-label" for="number">Number</label>
+      <div class="controls">
+        <input class="input-mini" type="integer" min="1" data-ng-model="event.number" id="number" placeholder="Number">
+        </input>
+      </div>
+    </div>
+    <div class="control-group">
+      <label class="control-label" for="length">Length</label>
+      <div class="controls">
+        <select class="input-small" type="number" ng-model="event.length">
+          <option>25</option>
+          <option>50</option>
+          <option>100</option>
+        </select>
+      </div>
+    </div>
+    <div class="control-group">
+      <label class="control-label" for="stroke">Stroke</label>
+      <div class="controls">
+        <select class="input-medium" type="text" ng-model="event.stroke">
+          <option>Butterfly</option>
+          <option>Backstroke</option>
+          <option>Breaststroke</option>
+          <option>Freestyle</option>
+        </select>
+      </div>
+    </div>
+    <div class="control-group">
+      <label class="control-label" for="type">Type</label>
+      <div class="controls">
+        <select class="input-medium" type="text" ng-model="event.type">
+          <option>Individual</option>
+          <option>Relay</option>
+        </select>
+      </div>
+    </div>
+    <div class="control-group">
+      <label class="control-label" for="group">Group</label>
+      <div class="controls">
+        <select class="input-mini" type="number" ng-model="event.age">
+          <option>8</option>
+          <option>10</option>
+          <option>12</option>
+          <option>14</option>
+          <option>17</option>
+        </select>
+        <select class="input-mini" type="text" ng-model="event.gender">
+          <option>M</option>
+          <option>F</option>
+          <option>B</option>
+        </select>
+      </div>
+    </div>
+    <div class="control-group">
+      <div class="controls">
+        <input type="submit" class="btn">
+      </div>
+    </div>
+  </form>
+</section>

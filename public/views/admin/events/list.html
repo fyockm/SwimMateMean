@@ -1,0 +1,73 @@
+<section ng-controller="EventsController" ng-init="find()">
+  <div class="page-header">
+    <h1>Events</h1>
+  </div>
+  <div id="list">
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th><a href="" ng-click="sort='number'">Event #</a></th>
+          <th><a href="" ng-click="sort='length'">Length</a></th>
+          <th><a href="" ng-click="sort='stroke'">Stroke</a></th>
+          <th><a href="" ng-click="sort='type'">Type</a></th>
+          <th><a href="" ng-click="sort='age+gender'">Group</a></th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="event in events | orderBy:sort">
+          <td>{{event.number}}</td>
+          <td>{{event.length}}</td>
+          <td>{{event.stroke}}</td>
+          <td>{{event.type}}</td>
+          <td>{{event.age}}{{event.gender}}</td>
+          <td>
+            <button class="btn btn-danger" ng-click="remove(event)">X</button>
+          </td>
+        </tr>
+        <tr id="new-item">
+          <td><input class="input-mini" type="number" min="1" ng-model="newEvent.number"></td>
+          <td>
+            <select class="input-small" type="number" ng-model="newEvent.length">
+              <option>25</option>
+              <option>50</option>
+              <option>100</option>
+            </select>
+          </td>
+          <td>
+            <select class="input-medium" type="text" ng-model="newEvent.stroke">
+              <option>Butterfly</option>
+              <option>Backstroke</option>
+              <option>Breaststroke</option>
+              <option>Freestyle</option>
+            </select>
+          <td>
+            <select class="input-medium" type="text" ng-model="newEvent.type">
+              <option>Individual</option>
+              <option>Relay</option>
+            </select>
+          </td>
+          <td>
+            <select class="input-mini" type="number" ng-model="newEvent.age">
+              <option>8</option>
+              <option>10</option>
+              <option>12</option>
+              <option>14</option>
+              <option>17</option>
+            </select>
+            <select class="input-mini" type="text" ng-model="newEvent.gender">
+              <option>M</option>
+              <option>F</option>
+              <option>B</option>
+            </select>
+          </td>
+          <td>
+            <button class="btn btn-primary" ng-click="add()">Add</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <!-- <h1 ng-hide="!events || events.length">No events yet. <br> Why don't you </h1>
+  <a href="/#!/admin/events/create">Create new Event</a>? -->
+</section>

@@ -5,15 +5,15 @@ var should = require('should'),
     app = require('../../server'),
     mongoose = require('mongoose'),
     User = mongoose.model('User'),
-    Team = mongoose.model('Team');
+    Event = mongoose.model('Event');
 
 //Globals
 var user;
-var team;
+var event;
 
 //The tests
 describe('<Unit Test>', function() {
-    describe('Model Team:', function() {
+    describe('Model Event:', function() {
         beforeEach(function(done) {
             user = new User({
                 name: 'Full name',
@@ -23,10 +23,13 @@ describe('<Unit Test>', function() {
             });
 
             user.save(function(err) {
-                team = new Team({
-                    name: 'Team Name',
-                    mascot: 'Team Mascot',
-                    division: 'Gold',
+                event = new Event({
+                    number: 1,
+                    length: 25,
+                    stroke: 'Freestyle',
+                    type: "Individual",
+                    age: 8,
+                    gender: "M",
                     user: user
                 });
 
@@ -36,16 +39,16 @@ describe('<Unit Test>', function() {
 
         describe('Method Save', function() {
             it('should be able to save whithout problems', function(done) {
-                return team.save(function(err) {
+                return event.save(function(err) {
                     should.not.exist(err);
                     done();
                 });
             });
 
-            it('should be able to show an error when try to save without team name', function(done) {
-                team.name = '';
+            it('should be able to show an error when try to save without event number', function(done) {
+                event.number = 0;
 
-                return team.save(function(err) {
+                return event.save(function(err) {
                     should.exist(err);
                     done();
                 });

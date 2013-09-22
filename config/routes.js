@@ -70,9 +70,18 @@ module.exports = function(app, passport, auth) {
     app.put('/admin/teams/:teamId', auth.requiresLogin, auth.admin.hasAuthorization, teams.update);
     app.del('/admin/teams/:teamId', auth.requiresLogin, auth.admin.hasAuthorization, teams.destroy);
 
+    //Event Routes
+    var events = require('../app/controllers/admin/events');
+    app.get('/admin/events', events.all);
+    app.post('/admin/events', auth.requiresLogin, events.create);
+    app.get('/admin/events/:eventId', events.show);
+    app.put('/admin/events/:eventId', auth.requiresLogin, auth.admin.hasAuthorization, events.update);
+    app.del('/admin/events/:eventId', auth.requiresLogin, auth.admin.hasAuthorization, events.destroy);
+
     //Finish with setting up the Id params
     // app.param('articleId', articles.article);
     app.param('teamId', teams.team);
+    app.param('eventId', events.event);
 
     //Home route
     var index = require('../app/controllers/index');

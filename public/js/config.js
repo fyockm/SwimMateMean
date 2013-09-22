@@ -5,14 +5,14 @@ window.app.config(['$routeProvider',
     when('/admin/teams', {
         templateUrl: 'views/admin/teams/list.html'
     }).
-    when('/admin/teams/create', {
-        templateUrl: 'views/admin/teams/create.html'
-    }).
-    when('/admin/teams/:teamId/edit', {
-        templateUrl: 'views/admin/teams/edit.html'
-    }).
     when('/admin/teams/:teamId', {
         templateUrl: 'views/admin/teams/view.html'
+    }).
+    when('/admin/events', {
+        templateUrl: 'views/admin/events/list.html'
+    }).
+    when('/admin/events/:eventId', {
+        templateUrl: 'views/admin/events/view.html'
     }).
     when('/', {
         templateUrl: 'views/index.html'

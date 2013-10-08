@@ -23,17 +23,16 @@ var db = mongoose.connect(config.db);
 
 //Bootstrap models
 var models_path = __dirname + '/app/models';
-var walk = function (path) {
-  fs.readdirSync(path).forEach(function (file) {
-  	var newPath = path + '/' + file;
-	  if (fs.statSync(newPath).isDirectory()) {
-      if (/(.*)\.(js|coffee)/.test(file)) {
-        walk(newPath);
-      }
-	  }
-	  else {
-	    require(newPath);
-	  }
+var walk = function(path) {
+  fs.readdirSync(path).forEach(function(file) {
+    var newPath = path + '/' + file;
+    var stat = fs.statSync(newPath);
+    if (stat.isDirectory()) {
+      walk(newPath);
+    }
+    else if (stat.isFile() && (/(.*)\.(js|coffee)/.test(file))) {
+       require(newPath);
+    }
   });
 };
 walk(models_path);

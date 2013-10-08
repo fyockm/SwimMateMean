@@ -27,7 +27,9 @@ var walk = function (path) {
   fs.readdirSync(path).forEach(function (file) {
   	var newPath = path + '/' + file;
 	  if (fs.statSync(newPath).isDirectory()) {
-	   	walk(newPath);
+      if (/(.*)\.(js|coffee)/.test(file)) {
+        walk(newPath);
+      }
 	  }
 	  else {
 	    require(newPath);

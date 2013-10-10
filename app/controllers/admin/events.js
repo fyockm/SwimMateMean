@@ -22,7 +22,7 @@ exports.event = function(req, res, next, id) {
 };
 
 /**
- * Create a event
+ * Create an event
  */
 exports.create = function(req, res) {
     var event = new Event(req.body);
@@ -33,7 +33,7 @@ exports.create = function(req, res) {
 };
 
 /**
- * Update a event
+ * Update an event
  */
 exports.update = function(req, res) {
     var event = req.event;

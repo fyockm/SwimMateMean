@@ -3,83 +3,83 @@
  */
 var mongoose = require('mongoose'),
     async = require('async'),
-    Team = mongoose.model('Team'),
+    Meet = mongoose.model('Meet'),
     _ = require('underscore');
 
 
 /**
- * Find team by id
+ * Find meet by id
  */
-exports.team = function(req, res, next, id) {
+exports.meet = function(req, res, next, id) {
     var User = mongoose.model('User');
 
-    Team.load(id, function(err, team) {
+    Meet.load(id, function(err, meet) {
         if (err) return next(err);
-        if (!team) return next(new Error('Failed to load team ' + id));
-        req.team = team;
+        if (!meet) return next(new Error('Failed to load meet ' + id));
+        req.meet = meet;
         next();
     });
 };
 
 /**
- * Create a team
+ * Create a meet
  */
 exports.create = function(req, res) {
-    var team = new Team(req.body);
+    var meet = new Meet(req.body);
 
-    team.user = req.user;
-    team.save();
-    res.jsonp(team);
+    meet.user = req.user;
+    meet.save();
+    res.jsonp(meet);
 };
 
 /**
- * Update a team
+ * Update a meet
  */
 exports.update = function(req, res) {
-    var team = req.team;
+    var meet = req.meet;
 
-    team = _.extend(team, req.body);
+    meet = _.extend(meet, req.body);
 
-    team.save(function(err) {
-        res.jsonp(team);
+    meet.save(function(err) {
+        res.jsonp(meet);
     });
 };
 
 /**
- * Delete an team
+ * Delete a meet
  */
 exports.destroy = function(req, res) {
-    var team = req.team;
+    var meet = req.meet;
 
-    team.remove(function(err) {
+    meet.remove(function(err) {
         if (err) {
             res.render('error', {
                 status: 500
             });
         } else {
-            res.jsonp(team);
+            res.jsonp(meet);
         }
     });
 };
 
 /**
- * Show an team
+ * Show a meet
  */
 exports.show = function(req, res) {
-    res.jsonp(req.team);
+    res.jsonp(req.meet);
 };
 
 /**
- * List of Teams
+ * List of Meets
  */
 exports.all = function(req, res) {
-    Team.find().sort('-created').populate('user').exec(function(err, teams) {
+    Meet.find().sort('-created').populate('user').exec(function(err, meets) {
         if (err) {
             res.render('error', {
                 status: 500
             });
         } else {
-            res.jsonp(teams);
+            res.jsonp(meets);
         }
     });
 };

@@ -7,10 +7,10 @@ angular.module('swimmate.admin').controller('EventsController',
 
   $scope.add = function() {
     new Events($scope.newEvent).$save(function(response) {
-      $location.path("admin/events/"); //+ response._id);
+      // $location.path("admin/events/"); //+ response._id);
+      $scope.events.push($scope.newEvent);
+      $scope.newEvent = {};
     });
-    $scope.events.push($scope.newEvent);
-    $scope.newEvent = {};
   };
 
   $scope.remove = function(event) {
@@ -32,7 +32,8 @@ angular.module('swimmate.admin').controller('EventsController',
     event.updated.push(new Date().getTime());
 
     event.$update(function() {
-      $location.path('admin/events/' + event._id);
+      // $location.path('admin/events/' + event._id);
+      $location.path('admin/events/');
     });
   };
 

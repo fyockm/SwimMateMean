@@ -8,51 +8,47 @@ var mongoose = require('mongoose'),
 
 
 /**
- * Event Schema
+ * Roster Schema
  */
-var EventSchema = new Schema({
+var RosterSchema = new Schema({
     created: {
         type: Date,
         default: Date.now
     },
-    number: {
-        type: Number,
-        default: 1
-    },
-    length: {
-        type: Number,
-        default: 25
-    },
-    stroke: {
+    firstName: {
         type: String,
         trim: true
     },
-    type: {
+    lastName: {
         type: String,
         trim: true
-    },
-    age: {
-        type: Number,
-        max: 17
     },
     gender: {
         type: String,
         trim: true,
         default: "M"
+    },
+    age: {
+        type: Number,
+        max: 17
     }
 });
 
 /**
  * Validations
  */
-EventSchema.path('number').validate(function(number) {
-    return number>0;
-}, 'Number must be a postive integer');
+RosterSchema.path('firstName').validate(function(firstName) {
+    return firstName.length;
+}, 'First Name cannot be blank');
+
+RosterSchema.path('lastName').validate(function(lastName) {
+    return lastName.length;
+}, 'Last Name cannot be blank');
 
 /**
  * Statics
  */
-EventSchema.statics = {
+RosterSchema.statics = {
     load: function(id, cb) {
         this.findOne({
             _id: id
@@ -60,4 +56,4 @@ EventSchema.statics = {
     }
 };
 
-mongoose.model('Event', EventSchema);
+mongoose.model('Roster', RosterSchema);

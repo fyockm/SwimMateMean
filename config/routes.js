@@ -70,7 +70,7 @@ module.exports = function(app, passport, auth) {
     app.put('/admin/teams/:teamId', auth.requiresLogin, auth.admin.hasAuthorization, teams.update);
     app.del('/admin/teams/:teamId', auth.requiresLogin, auth.admin.hasAuthorization, teams.destroy);
 
-    //Event Routes
+    //Roster Routes
     var events = require('../app/controllers/admin/events');
     app.get('/admin/events', events.all);
     app.post('/admin/events', auth.requiresLogin, events.create);
@@ -78,10 +78,28 @@ module.exports = function(app, passport, auth) {
     app.put('/admin/events/:eventId', auth.requiresLogin, auth.admin.hasAuthorization, events.update);
     app.del('/admin/events/:eventId', auth.requiresLogin, auth.admin.hasAuthorization, events.destroy);
 
+    //Meets Routes
+    var meets = require('../app/controllers/admin/meets');
+    app.get('/admin/meets', meets.all);
+    app.post('/admin/meets', auth.requiresLogin, meets.create);
+    app.get('/admin/meets/:meetId', meets.show);
+    app.put('/admin/meets/:meetId', auth.requiresLogin, auth.admin.hasAuthorization, meets.update);
+    app.del('/admin/meets/:meetId', auth.requiresLogin, auth.admin.hasAuthorization, meets.destroy);
+
+    //Roster Routes
+    var roster = require('../app/controllers/admin/roster');
+    app.get('/admin/roster', roster.all);
+    app.post('/admin/roster', auth.requiresLogin, roster.create);
+    app.get('/admin/roster/:rosterId', roster.show);
+    app.put('/admin/roster/:rosterId', auth.requiresLogin, auth.admin.hasAuthorization, roster.update);
+    app.del('/admin/roster/:rosterId', auth.requiresLogin, auth.admin.hasAuthorization, roster.destroy);
+
     //Finish with setting up the Id params
     // app.param('articleId', articles.article);
     app.param('teamId', teams.team);
     app.param('eventId', events.event);
+    app.param('meetId', meets.meet);
+    app.param('rosterId', roster.roster);
 
     //Home route
     var index = require('../app/controllers/index');

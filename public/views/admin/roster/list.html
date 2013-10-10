@@ -1,0 +1,45 @@
+<section ng-controller="RosterController" ng-init="find()">
+  <div class="page-header">
+    <h1>Roster</h1>
+  </div>
+  <div id="list">
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th><a href="" ng-click="sort='firstName'">First</a></th>
+          <th><a href="" ng-click="sort='lastName'">Last</a></th>
+          <th><a href="" ng-click="sort='gender'">Gender</a></th>
+          <th><a href="" ng-click="sort='age'">Age</a></th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="athlete in roster | orderBy:sort">
+          <td><a ng-href="#!/admin/roster/{{athlete._id}}">{{athlete.firstName}}</a></td>
+          <td><a ng-href="#!/admin/roster/{{athlete._id}}">{{athlete.lastName}}</a></td>
+          <td>{{athlete.gender}}</td>
+          <td>{{athlete.age}}</td>
+          <td>
+            <button class="btn btn-danger" ng-click="remove(athlete)">X</button>
+          </td>
+        </tr>
+        <tr id="new-item">
+          <td><input class="input-medium" type="text" ng-model="newRoster.firstName"></td>
+          <td><input class="input-medium" type="text" ng-model="newRoster.lastName"></td>
+          <td><input class="input-medium" type="number" min="4" max="17" ng-model="newRoster.age"></td>
+          <td>
+            <button class="btn btn-primary" ng-click="add()">Add</button>
+          </td>
+          <td>
+            <select class="input-mini" type="text" ng-model="newEvent.gender">
+              <option>M</option>
+              <option>F</option>
+            </select>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <!-- <h1 ng-hide="!rosters || rosters.length">No roster yet. <br> Why don't you </h1>
+  <a href="/#!/admin/roster/create">Create new Roster</a>? -->
+</section>

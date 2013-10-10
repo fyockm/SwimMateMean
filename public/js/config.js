@@ -14,6 +14,18 @@ window.app.config(['$routeProvider',
     when('/admin/events/:eventId', {
         templateUrl: 'views/admin/events/view.html'
     }).
+    when('/admin/meets', {
+        templateUrl: 'views/admin/meets/list.html'
+    }).
+    when('/admin/meets/:meetId', {
+        templateUrl: 'views/admin/meets/view.html'
+    }).
+    when('/admin/roster', {
+        templateUrl: 'views/admin/roster/list.html'
+    }).
+    when('/admin/roster/:rosterId', {
+        templateUrl: 'views/admin/roster/view.html'
+    }).
     when('/', {
         templateUrl: 'views/index.html'
     }).

@@ -1,0 +1,46 @@
+<section ng-controller="MeetsController" ng-init="find()">
+  <div class="page-header">
+    <h1>Meets</h1>
+  </div>
+  <div id="list">
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th><a href="" ng-click="sort='date'">Date</a></th>
+          <th><a href="" ng-click="sort='home'">Home</a></th>
+          <th><a href="" ng-click="sort='away'">Away</a></th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="meet in meets | orderBy:sort">
+          <td><a ng-href="#!/admin/meets/{{meet._id}}">{{meet.date | date:'medium'}}</a></td>
+          <!-- <td>{{meet.date}}</td> -->
+          <td>{{meet.home}}</td>
+          <td>{{meet.away}}</td>
+          <td>
+            <button class="btn btn-danger" ng-click="remove(meet)">X</button>
+          </td>
+        </tr>
+        <tr id="new-item">
+          <td><input class="input-medium" type="date" ng-model="newMeet.date"></td>
+          <td>
+            <select class="input-medium" type="text" ng-model="newMeet.home">
+              <option ng-repeat="team in teams">{{team.name}}</option>
+            </select>
+          </td>
+          <td>
+            <select class="input-medium" type="text" ng-model="newMeet.away">
+              <option ng-repeat="team in teams">{{team.name}}</option>
+            </select>
+          </td>
+          <td>
+            <button class="btn btn-primary" ng-click="add()">Add</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <!-- <h1 ng-hide="!meets || meets.length">No meets yet. <br> Why don't you </h1>
+  <a href="/#!/admin/meets/create">Create new Meet</a>? -->
+</section>

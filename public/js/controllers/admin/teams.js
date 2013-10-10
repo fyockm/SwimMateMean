@@ -7,10 +7,10 @@ angular.module('swimmate.admin').controller('TeamsController',
 
   $scope.add = function() {
     new Teams($scope.newTeam).$save(function(response) {
-      $location.path("admin/teams/"); //+ response._id);
+      // $location.path("admin/teams/"); //+ response._id);
+      $scope.teams.push($scope.newTeam);
+      $scope.newTeam = {};
     });
-    $scope.teams.push($scope.newTeam);
-    $scope.newTeam = {};
   };
 
   $scope.remove = function(team) {
@@ -32,7 +32,8 @@ angular.module('swimmate.admin').controller('TeamsController',
     team.updated.push(new Date().getTime());
 
     team.$update(function() {
-      $location.path('admin/teams/' + team._id);
+      // $location.path('admin/teams/' + team._id);
+      $location.path('admin/teams/');
     });
   };
 

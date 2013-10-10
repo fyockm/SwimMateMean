@@ -8,51 +8,41 @@ var mongoose = require('mongoose'),
 
 
 /**
- * Event Schema
+ * Meet Schema
  */
-var EventSchema = new Schema({
+var MeetSchema = new Schema({
     created: {
         type: Date,
         default: Date.now
     },
-    number: {
-        type: Number,
-        default: 1
+    date: {
+        type: Date
     },
-    length: {
-        type: Number,
-        default: 25
-    },
-    stroke: {
+    home: {
         type: String,
         trim: true
     },
-    type: {
+    away: {
         type: String,
         trim: true
-    },
-    age: {
-        type: Number,
-        max: 17
-    },
-    gender: {
-        type: String,
-        trim: true,
-        default: "M"
     }
 });
 
 /**
  * Validations
  */
-EventSchema.path('number').validate(function(number) {
-    return number>0;
-}, 'Number must be a postive integer');
+MeetSchema.path('home').validate(function(home) {
+    return home.length;
+}, 'Home cannot be blank');
+
+MeetSchema.path('away').validate(function(away) {
+    return away.length;
+}, 'Away cannot be blank');
 
 /**
  * Statics
  */
-EventSchema.statics = {
+MeetSchema.statics = {
     load: function(id, cb) {
         this.findOne({
             _id: id
@@ -60,4 +50,4 @@ EventSchema.statics = {
     }
 };
 
-mongoose.model('Event', EventSchema);
+mongoose.model('Meet', MeetSchema);

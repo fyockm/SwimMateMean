@@ -30,7 +30,7 @@ var walk = function(path) {
     if (stat.isDirectory()) {
       walk(newPath);
     }
-    else if (stat.isFile() && (/(.*)\.(js|coffee)/.test(file))) {
+    else if (stat.isFile() && /(.*)\.(js|coffee)/.test(file)) {
        require(newPath);
     }
   });

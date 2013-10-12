@@ -16,7 +16,8 @@ var MeetSchema = new Schema({
         default: Date.now
     },
     date: {
-        type: Date
+        type: Date,
+        default: Date.now
     },
     home: {
         type: String,

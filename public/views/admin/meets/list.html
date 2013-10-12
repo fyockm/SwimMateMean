@@ -14,8 +14,7 @@
       </thead>
       <tbody>
         <tr ng-repeat="meet in meets | orderBy:sort">
-          <td><a ng-href="#!/admin/meets/{{meet._id}}">{{meet.date | date:'medium'}}</a></td>
-          <!-- <td>{{meet.date}}</td> -->
+          <td><a ng-href="#!/admin/meets/{{meet._id}}">{{meet.date | date:'mediumDate'}}</a></td>
           <td>{{meet.home}}</td>
           <td>{{meet.away}}</td>
           <td>
@@ -23,7 +22,12 @@
           </td>
         </tr>
         <tr id="new-item">
-          <td><input class="input-medium" type="date" ng-model="newMeet.date"></td>
+          <!-- <td><input class="input-medium" type="date" ng-model="newMeet.date"></td> -->
+          <td class="form-horizontal">
+            <!-- <datepicker show-weeks="showWeeks" ng-model="newMeet.date"></datepicker> -->
+            <input type="text" datepicker-popup="MMM dd yyyy" ng-model="newMeet.date" is-open="opened" />
+            <button type="button" class="btn" ng-click="open()"><i class="icon-calendar"></i></button>
+          </td>
           <td>
             <select class="input-medium" type="text" ng-model="newMeet.home">
               <option ng-repeat="team in teams">{{team.name}}</option>

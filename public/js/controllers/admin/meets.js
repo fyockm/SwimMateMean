@@ -1,6 +1,6 @@
 angular.module('swimmate.admin').controller('MeetsController',
-  ['$scope', '$routeParams', '$location', 'Global', 'Meets', 'Teams',
-  function ($scope, $routeParams, $location, Global, Meets, Teams) {
+  ['$scope', '$routeParams', '$location', '$timeout', 'Global', 'Meets', 'Teams',
+  function ($scope, $routeParams, $location, $timeout, Global, Meets, Teams) {
 
   $scope.global = Global;
   $scope.sort = 'date';
@@ -28,7 +28,6 @@ angular.module('swimmate.admin').controller('MeetsController',
     if (!meet.updated) {
       meet.updated = [];
     }
-    console.log(meet);
     meet.updated.push(new Date().getTime());
 
     meet.$update(function() {
@@ -54,6 +53,12 @@ angular.module('swimmate.admin').controller('MeetsController',
     });
     Teams.query(query, function(teams){
       $scope.teams = teams;
+    });
+  };
+
+  $scope.open = function() {
+    $timeout(function() {
+      $scope.opened = true;
     });
   };
 }]);

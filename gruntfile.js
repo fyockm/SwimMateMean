@@ -1,3 +1,10 @@
+'use strict';
+var LIVERELOAD_PORT = 35729;
+var lrSnippet = require('connect-livereload')({ port: LIVERELOAD_PORT });
+var mountFolder = function (connect, dir) {
+  return connect.static(require('path').resolve(dir));
+};
+
 module.exports = function(grunt) {
     // Project Configuration
     grunt.initConfig({
@@ -30,7 +37,8 @@ module.exports = function(grunt) {
             }
         },
         jshint: {
-            all: ['gruntfile.js', 'public/js/**/*.js', 'test/**/*.js', 'app/**/*.js']
+            // all: ['gruntfile.js', 'public/js/**/*.js', 'test/**/*.js', 'app/**/*.js']
+            all: ['public/js/**/*.js', 'test/**/*.js', 'app/**/*.js']
         },
         nodemon: {
             dev: {
@@ -49,8 +57,19 @@ module.exports = function(grunt) {
                 }
             }
         },
+        livereload: {
+            options: {
+                middleware: function (connect) {
+                    return [
+                        lrSnippet,
+                        mountFolder(connect, '.tmp'),
+                        mountFolder(connect, 'public')
+                    ];
+                }
+            }
+        },
         concurrent: {
-            tasks: ['nodemon', 'watch'], 
+            tasks: ['nodemon', 'watch', 'livereload'], 
             options: {
                 logConcurrentOutput: true
             }
@@ -60,17 +79,6 @@ module.exports = function(grunt) {
                 reporter: 'spec'
             },
             src: ['test/**/*.js']
-        },
-        bower: {
-            install: {
-                options: {
-                    targetDir: './public/lib',
-                    layout: 'byComponent',
-                    install: true,
-                    verbose: true,
-                    cleanBowerDir: true
-                }
-            }
         }
     });
 
@@ -90,7 +98,4 @@ module.exports = function(grunt) {
 
     //Test task.
     grunt.registerTask('test', ['mochaTest']);
-
-    //Bower task.
-    grunt.registerTask('install', ['bower']);
 };

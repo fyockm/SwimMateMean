@@ -1,7 +1,5 @@
 <section data-ng-controller="EventsController" data-ng-init="findOne()">
-
-  <h2>{{event.number}} {{event.length}} {{event.stroke}} {{event.type}} {{event.age}}{{event.gender}}</h2>
-
+  <h2 ng-show="event.number">#{{event.number}} - {{event.length}} {{event.stroke}} {{event.type}} {{event.age}}{{event.gender}}</h2>
   <form class="form-horizontal" data-ng-submit="update()">
     <div class="control-group">
       <label class="control-label" for="number">Number</label>
@@ -59,7 +57,8 @@
     </div>
     <div class="control-group">
       <div class="controls">
-        <input type="submit" class="btn">
+        <a class="btn btn-danger" href="#!/admin/events">Cancel</a>
+        <input type="submit" class="btn btn-primary" />
       </div>
     </div>
   </form>

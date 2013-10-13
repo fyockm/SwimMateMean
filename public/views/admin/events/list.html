@@ -16,7 +16,7 @@
       </thead>
       <tbody>
         <tr ng-repeat="event in events | orderBy:sort">
-          <td>{{event.number}}</td>
+          <td><a ng-href="#!/admin/events/{{event._id}}">{{event.number}}</a></td>
           <td>{{event.length}}</td>
           <td>{{event.stroke}}</td>
           <td>{{event.type}}</td>

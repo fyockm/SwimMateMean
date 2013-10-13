@@ -1,6 +1,6 @@
 <section data-ng-controller="TeamsController" data-ng-init="findOne()">
 
-  <h2>{{team.name}} {{team.mascot}}</h2>
+  <h2 ng-show="team.name">{{team.name}} {{team.mascot}} - {{team.division}}</h2>
 
   <form class="form-horizontal" data-ng-submit="update()">
     <div class="control-group">
@@ -28,7 +28,8 @@
     </div>
     <div class="control-group">
       <div class="controls">
-        <input type="submit" class="btn">
+        <a class="btn btn-danger" href="#!/admin/teams">Cancel</a>
+        <input type="submit" class="btn btn-primary" />
       </div>
     </div>
   </form>

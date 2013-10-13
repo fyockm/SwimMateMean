@@ -28,7 +28,7 @@ angular.module('swimmate.admin').controller('MeetsController',
     if (!meet.updated) {
       meet.updated = [];
     }
-    meet.updated.push(new Date().getTime());
+    meet.updated.push(Date.now);
 
     meet.$update(function() {
       // $location.path('admin/meets/' + meet._id);

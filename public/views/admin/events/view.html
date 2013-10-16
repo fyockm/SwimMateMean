@@ -1,10 +1,10 @@
-<section data-ng-controller="EventsController" data-ng-init="findOne()">
+<section ng-controller="EventsController" ng-init="findOne()">
   <h2 ng-show="event.number">#{{event.number}} - {{event.length}} {{event.stroke}} {{event.type}} {{event.age}}{{event.gender}}</h2>
-  <form class="form-horizontal" data-ng-submit="update()">
+  <form class="form-horizontal" ng-submit="update()">
     <div class="control-group">
       <label class="control-label" for="number">Number</label>
       <div class="controls">
-        <input class="input-mini" type="integer" min="1" data-ng-model="event.number" id="number" placeholder="Number">
+        <input class="input-mini" type="integer" min="1" ng-model="event.number" id="number" placeholder="Number">
         </input>
       </div>
     </div>

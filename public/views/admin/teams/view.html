@@ -1,19 +1,19 @@
-<section data-ng-controller="TeamsController" data-ng-init="findOne()">
+<section ng-controller="TeamsController" ng-init="findOne()">
 
   <h2 ng-show="team.name">{{team.name}} {{team.mascot}} - {{team.division}}</h2>
 
-  <form class="form-horizontal" data-ng-submit="update()">
+  <form class="form-horizontal" ng-submit="update()">
     <div class="control-group">
       <label class="control-label" for="name">Name</label>
       <div class="controls">
-        <input type="text" data-ng-model="team.name" id="name" placeholder="Name">
+        <input type="text" ng-model="team.name" id="name" placeholder="Name">
         </input>
       </div>
     </div>
     <div class="control-group">
       <label class="control-label" for="mascot">Mascot</label>
       <div class="controls">
-        <input type="text" data-ng-model="team.mascot" id="mascot" placeholder="Mascot">
+        <input type="text" ng-model="team.mascot" id="mascot" placeholder="Mascot">
         </input>
       </div>
     </div>

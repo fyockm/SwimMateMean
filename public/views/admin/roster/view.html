@@ -1,6 +1,6 @@
-<section data-ng-controller="RosterController" data-ng-init="findOne()">
+<section ng-controller="RosterController" ng-init="findOne()">
   <h2 ng-show="roster.firstName">{{roster.firstName}} {{roster.lastName}} - {{roster.age}} {{roster.gender}}</h2>
-  <form class="form-horizontal" data-ng-submit="update()">
+  <form class="form-horizontal" ng-submit="update()">
     <div class="control-group">
       <label class="control-label" for="firstName">First Name</label>
       <div class="controls">

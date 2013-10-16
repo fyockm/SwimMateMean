@@ -5,6 +5,10 @@ angular.module('swimmate.admin').controller('MeetsController',
   $scope.global = Global;
   $scope.sort = 'date';
 
+  Teams.query(function(teams){
+    $scope.teams = teams;
+  });
+
   $scope.add = function() {
     new Meets($scope.newMeet).$save(function(response) {
       // $location.path("admin/meets/"); //+ response._id);
@@ -36,23 +40,17 @@ angular.module('swimmate.admin').controller('MeetsController',
     });
   };
 
-  $scope.find = function(query) {
-    Meets.query(query, function(meets) {
+  $scope.find = function() {
+    Meets.query(function(meets) {
       $scope.meets = meets;
-    });
-    Teams.query(query, function(teams){
-      $scope.teams = teams;
     });
   };
 
-  $scope.findOne = function(query) {
+  $scope.findOne = function() {
     Meets.get({
       meetId: $routeParams.meetId
     }, function(meet) {
       $scope.meet = meet;
-    });
-    Teams.query(query, function(teams){
-      $scope.teams = teams;
     });
   };
 

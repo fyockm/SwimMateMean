@@ -37,8 +37,8 @@ angular.module('swimmate.admin').controller('TeamsController',
     });
   };
 
-  $scope.find = function(query) {
-    Teams.query(query, function(teams) {
+  $scope.find = function() {
+    Teams.query(function(teams) {
       $scope.teams = teams;
     });
   };

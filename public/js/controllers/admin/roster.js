@@ -38,8 +38,8 @@ angular.module('swimmate.admin').controller('RosterController',
     });
   };
 
-  $scope.find = function(query) {
-    Roster.query(query, function(roster) {
+  $scope.find = function() {
+    Roster.query(function(roster) {
       $scope.roster = roster;
     });
   };

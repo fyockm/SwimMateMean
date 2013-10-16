@@ -37,8 +37,8 @@ angular.module('swimmate.admin').controller('EventsController',
     });
   };
 
-  $scope.find = function(query) {
-    Events.query(query, function(events) {
+  $scope.find = function() {
+    Events.query(function(events) {
       $scope.events = events;
     });
   };

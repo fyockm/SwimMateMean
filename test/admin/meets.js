@@ -24,7 +24,7 @@ describe('<Unit Test>', function() {
 
             user.save(function(err) {
                 meet = new Meet({
-                    date: Date.now,
+                    // default 'date' from model
                     home: "Brook Park",
                     away: "Oxford",
                     user: user
@@ -35,7 +35,7 @@ describe('<Unit Test>', function() {
         });
 
         describe('Method Save', function() {
-            it('should be able to save whithout problems', function(done) {
+            it('should be able to save without problems', function(done) {
                 return meet.save(function(err) {
                     should.not.exist(err);
                     done();

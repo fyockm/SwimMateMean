@@ -36,7 +36,7 @@ describe('<Unit Test>', function() {
         });
 
         describe('Method Save', function() {
-            it('should be able to save whithout problems', function(done) {
+            it('should be able to save without problems', function(done) {
                 return roster.save(function(err) {
                     should.not.exist(err);
                     done();

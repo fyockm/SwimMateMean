@@ -95,7 +95,6 @@ module.exports = function(app, passport, auth) {
     app.del('/admin/roster/:rosterId', auth.requiresLogin, auth.admin.hasAuthorization, roster.destroy);
 
     //Finish with setting up the Id params
-    // app.param('articleId', articles.article);
     app.param('teamId', teams.team);
     app.param('eventId', events.event);
     app.param('meetId', meets.meet);

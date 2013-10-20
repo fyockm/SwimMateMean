@@ -44,7 +44,7 @@ module.exports = function(app, passport) {
 
         //express/mongo session storage
         app.use(express.session({
-            secret: 'MEAN',
+            secret: 'SwimMate',
             store: new mongoStore({
                 url: config.db,
                 collection: 'sessions'

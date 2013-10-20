@@ -1,7 +1,7 @@
 SwimMateMean
 ============
 
-SwimMate on the MEAN stack
+[SwimMate](https://github.com/fyockm/SwimMate) on the MEAN stack - project to help track meets for summer swim team
 
 ![Codship Status](https://www.codeship.io/projects/ab530a00-1898-0131-e9ac-2612874a79c1/status)
 

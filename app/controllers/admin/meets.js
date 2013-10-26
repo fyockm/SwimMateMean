@@ -2,10 +2,7 @@
  * Module dependencies.
  */
 var mongoose = require('mongoose'),
-    async = require('async'),
-    Meet = mongoose.model('Meet'),
-    _ = require('underscore');
-
+    Meet = mongoose.model('Meet');
 
 /**
  * Find meet by id

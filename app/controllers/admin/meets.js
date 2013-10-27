@@ -2,7 +2,8 @@
  * Module dependencies.
  */
 var mongoose = require('mongoose'),
-    Meet = mongoose.model('Meet');
+    Meet = mongoose.model('Meet'),
+    _ = require('underscore');
 
 /**
  * Find meet by id

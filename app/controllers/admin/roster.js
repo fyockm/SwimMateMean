@@ -2,7 +2,8 @@
  * Module dependencies.
  */
 var mongoose = require('mongoose'),
-    Roster = mongoose.model('Roster');
+    Roster = mongoose.model('Roster'),
+    _ = require('underscore');
 
 /**
  * Find roster by id

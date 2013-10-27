@@ -26,6 +26,9 @@ window.app.config(['$routeProvider',
     when('/admin/roster/:rosterId', {
         templateUrl: 'views/admin/roster/view.html'
     }).
+    when('/assignments', {
+        templateUrl: 'views/assignments.html'
+    }).
     when('/', {
         templateUrl: 'views/index.html'
     }).

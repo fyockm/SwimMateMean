@@ -2,7 +2,8 @@
  * Module dependencies.
  */
 var mongoose = require('mongoose'),
-    Event = mongoose.model('Event');
+    Event = mongoose.model('Event'),
+    _ = require('underscore');
 
 /**
  * Find event by id

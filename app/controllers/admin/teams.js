@@ -2,7 +2,8 @@
  * Module dependencies.
  */
 var mongoose = require('mongoose'),
-    Team = mongoose.model('Team');
+    Team = mongoose.model('Team'),
+    _ = require('underscore');
 
 /**
  * Find team by id

@@ -1,10 +1,3 @@
-'use strict';
-var LIVERELOAD_PORT = 35729;
-var lrSnippet = require('connect-livereload')({ port: LIVERELOAD_PORT });
-var mountFolder = function (connect, dir) {
-  return connect.static(require('path').resolve(dir));
-};
-
 module.exports = function(grunt) {
     // Project Configuration
     grunt.initConfig({
@@ -37,7 +30,6 @@ module.exports = function(grunt) {
             }
         },
         jshint: {
-            // all: ['gruntfile.js', 'public/js/**/*.js', 'test/**/*.js', 'app/**/*.js']
             all: ['public/js/**/*.js', 'test/**/*.js', 'app/**/*.js']
         },
         nodemon: {

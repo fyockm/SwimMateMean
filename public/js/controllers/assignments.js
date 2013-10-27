@@ -3,7 +3,7 @@ angular.module('swimmate').controller('AssignmentsController',
   function ($scope, $routeParams, $location, Global, Assignments, Events, Meets, Roster) {
 
   $scope.global = Global;
-  $scope.sort = 'name';
+  $scope.sort = 'number';
 
   Meets.query(function(meets){
     $scope.meets = meets;

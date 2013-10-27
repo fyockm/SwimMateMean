@@ -1,16 +1,16 @@
 <section ng-controller="RosterController" ng-init="findOne()">
-  <h2 ng-show="roster.firstName">{{roster.firstName}} {{roster.lastName}} - {{roster.age}} {{roster.gender}}</h2>
+  <h2 ng-show="roster.firstName">{{roster.name.first}} {{roster.name.last}} - {{roster.age}} {{roster.gender}}</h2>
   <form class="form-horizontal" ng-submit="update()">
     <div class="control-group">
-      <label class="control-label" for="firstName">First Name</label>
+      <label class="control-label" for="name.first">First Name</label>
       <div class="controls">
-        <input class="input-medium" type="text" ng-model="roster.firstName" placeholder="First Name" />
+        <input class="input-medium" type="text" ng-model="roster.name.first" placeholder="First Name">
       </div>
     </div>
     <div class="control-group">
-      <label class="control-label" for="firstName">Last Name</label>
+      <label class="control-label" for="name.last">Last Name</label>
       <div class="controls">
-        <input class="input-medium" type="text" ng-model="roster.lastName" placeholder="Last Name" />
+        <input class="input-medium" type="text" ng-model="roster.name.last" placeholder="Last Name">
       </div>
     </div>
     <div class="control-group">

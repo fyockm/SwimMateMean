@@ -3,7 +3,7 @@ angular.module('swimmate.admin').controller('RosterController',
   function ($scope, $routeParams, $location, Global, Roster) {
 
   $scope.global = Global;
-  $scope.sort = 'number';
+  $scope.sort = 'name.fullLF';
 
   $scope.add = function() {
     new Roster($scope.newRoster).$save(function(response) {

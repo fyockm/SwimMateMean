@@ -2,7 +2,7 @@
     "name": "swimmate",
     "version": "0.0.2",
     "dependencies": {
-		"bootstrap-css-only": "3.0.0",
+		"bootstrap-css-only": "2.3.2",
         "angular": "~1.0.8",
         "angular-resource": "~1.0.8",
         "angular-cookies": "~1.0.8",

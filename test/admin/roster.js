@@ -24,8 +24,7 @@ describe('<Unit Test>', function() {
 
             user.save(function(err) {
                 roster = new Roster({
-                    firstName: 'Mason',
-                    lastName: "Fyock",
+                    name: { first: 'Mason', last: "Fyock" },
                     age: 8,
                     gender: "M",
                     user: user
@@ -44,7 +43,7 @@ describe('<Unit Test>', function() {
             });
 
             it('should be able to show an error when try to save without first name', function(done) {
-                roster.firstName = '';
+                roster.name.first = '';
 
                 return roster.save(function(err) {
                     should.exist(err);
@@ -53,7 +52,7 @@ describe('<Unit Test>', function() {
             });
 
             it('should be able to show an error when try to save without last name', function(done) {
-                roster.lastName = '';
+                roster.name.last = '';
 
                 return roster.save(function(err) {
                     should.exist(err);

@@ -6,8 +6,8 @@
     <table class="table table-hover">
       <thead>
         <tr>
-          <th><a href="" ng-click="sort='firstName'">First</a></th>
-          <th><a href="" ng-click="sort='lastName'">Last</a></th>
+          <th><a href="" ng-click="sort='name.first'">First</a></th>
+          <th><a href="" ng-click="sort='name.last'">Last</a></th>
           <th><a href="" ng-click="sort='gender'">Gender</a></th>
           <th><a href="" ng-click="sort='age'">Age</a></th>
           <th></th>
@@ -15,8 +15,8 @@
       </thead>
       <tbody>
         <tr ng-repeat="athlete in roster | orderBy:sort">
-          <td><a ng-href="#!/admin/roster/{{athlete._id}}">{{athlete.firstName}}</a></td>
-          <td><a ng-href="#!/admin/roster/{{athlete._id}}">{{athlete.lastName}}</a></td>
+          <td><a ng-href="#!/admin/roster/{{athlete._id}}">{{athlete.name.first}}</a></td>
+          <td><a ng-href="#!/admin/roster/{{athlete._id}}">{{athlete.name.last}}</a></td>
           <td>{{athlete.gender}}</td>
           <td>{{athlete.age}}</td>
           <td>
@@ -24,8 +24,8 @@
           </td>
         </tr>
         <tr id="new-item">
-          <td><input class="input-medium" type="text" ng-model="newRoster.firstName"></td>
-          <td><input class="input-medium" type="text" ng-model="newRoster.lastName"></td>
+          <td><input class="input-medium" type="text" ng-model="newRoster.name.first"></td>
+          <td><input class="input-medium" type="text" ng-model="newRoster.name.last"></td>
           <td>
             <select class="input-mini" type="text" ng-model="newRoster.gender">
               <option>M</option>

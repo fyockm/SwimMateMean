@@ -24,8 +24,7 @@ describe('<Unit Test>', function() {
 
             user.save(function(err) {
                 roster = new Roster({
-                    name.first: 'Mason',
-                    name.last: "Fyock",
+                    name: { first: 'Mason', last: "Fyock" },
                     age: 8,
                     gender: "M",
                     user: user

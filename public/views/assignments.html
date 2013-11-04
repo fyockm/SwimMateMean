@@ -5,20 +5,20 @@
     <h2 ng-show="assignments.meet">{{assignments.meet.home}} vs {{assignments.meet.away}}</h2>
   </div>
   <div id="list" ng-show="assignments.meet">
-    <ul>
-      <li ng-repeat="event in events | orderBy:sort">#{{event.number}} - {{event.length}} {{event.stroke}} {{event.type}} {{event.age}}{{event.gender}}
-        <ul>
+    <ul class="unstyled">
+      <li ng-repeat="event in assignments.events | orderBy:sort">#{{event.number}} - {{event.length}} {{event.stroke}} {{event.type}} {{event.age}}{{event.gender}}
+        <ul class="inline">
           <li>
-            <select class="input-medium" type="text" ng-model="assignments.event.athlete0" ng-options="a.fullName for a in roster"></select>
+            <select class="input-medium" type="text" ng-model="event.athlete0" ng-options="a.name.first for a in roster"></select>
           </li>
           <li ng-show="event.type=='Relay'">
-            <select class="input-medium" type="text" ng-model="assignments.event.athlete1" ng-options="a.fullName for a in roster"></select>
+            <select class="input-medium" type="text" ng-model="event.athlete1" ng-options="a.name.full for a in roster"></select>
           </li>
           <li ng-show="event.type=='Relay'">
-            <select class="input-medium" type="text" ng-model="assignments.event.athlete2" ng-options="a.fullName for a in roster"></select>
+            <select class="input-medium" type="text" ng-model="event.athlete2" ng-options="a.name.full for a in roster"></select>
           </li>
           <li ng-show="event.type=='Relay'">
-            <select class="input-medium" type="text" ng-model="assignments.event.athlete3" ng-options="a.fullName for a in roster"></select>
+            <select class="input-medium" type="text" ng-model="event.athlete3" ng-options="a.name.full for a in roster"></select>
           </li>
         </ul>
       </li>

@@ -4,15 +4,16 @@ angular.module('swimmate').controller('AssignmentsController',
 
   $scope.global = Global;
   $scope.sort = 'number';
+  $scope.assignments = Assignments.query();
 
   Meets.query(function(meets){
     $scope.meets = meets;
   });
-  Events.query(function(events){
-    $scope.events = events;
-  });
   Roster.query(function(roster){
     $scope.roster = roster;
+  });
+  Events.query(function(events){
+    $scope.assignments.events = events;
   });
 
   $scope.add = function() {
